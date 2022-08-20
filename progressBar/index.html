@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Something</title>
+    <link rel="shortcut icon" href="/progressBar/progressbar.gif" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box">
+            <div class="progressbar">
+                <div class="progress" id="progress">
+                    <p>10%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    var progressDiv = document.getElementById("progress");
+    var progressText = progressDiv.querySelector("p");
+    var progress = 0;
+    var progressUnit = "percent";
+    var borderRadius = 70;
+    var borderRadiusUnit = "percent";
+    var done = false
+    update();
+    change();
+    
+    function percent(){
+        if (progress < 100 && done === false) {
+            progress++;
+            update();
+        }else if (progress > 99 && done === false) {
+            done = true
+            return console.log("100%");
+        }
+    }
+    
+   function change() {
+    if(progress < 99) {
+        var interval = setInterval(percent, 500);
+    }else {
+        clearInterval(interval);
+        interval = 0;
+    }
+   }
+
+    function update() {
+            progressDiv.style.width = String(progress) + "%";
+        // if (progress > 49) {
+        //     borderRadius = 25;
+        //     borderRadiusUnit = "px";
+        //     progressDiv.style.borderRadius = String(borderRadius) + borderRadiusUnit;
+        //     progressDiv.style.height = "50px";
+            
+        // }else
+        if(progress < 11) {
+            progressDiv.style.borderRadius = String(borderRadius) + borderRadiusUnit;
+            progressDiv.style.transform = "translateY(7%)";
+            progressDiv.style.height = "45px";
+        }else if (progress > 11 && progress < 49) {
+            borderRadius = 20;
+            borderRadiusUnit = "px";
+            progressDiv.style.transform = "translateY(0%)";
+            progressDiv.style.borderRadius = String(borderRadius) + borderRadiusUnit;
+            progressDiv.style.height = "50px";
+        }
+        progressText.innerHTML = progress + "%";
+        
+    }
+</script>
+</body>
+</html>

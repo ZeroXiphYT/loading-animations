@@ -1,0 +1,58 @@
+html {
+    background-color: #232323;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: aqua;
+}
+
+.box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -10px 5px 5px black;
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    border: 1.5px solid black;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 50%;
+    animation: spin 1s normal infinite;
+}
+
+
+p {
+    color: #4faff4;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(120deg);
+    }
+
+    50% {
+        transform: rotate(240deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
